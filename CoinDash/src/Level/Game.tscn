@@ -28,7 +28,7 @@ stretch_mode = 2
 [node name="CoinContainer" type="Node" parent="."]
 
 [node name="Cactus" parent="." instance=ExtResource( 6 )]
-position = Vector2( 335, 201 )
+position = Vector2( 234, 136 )
 
 [node name="PlayerStart" type="Position2D" parent="."]
 position = Vector2( 16, 16 )

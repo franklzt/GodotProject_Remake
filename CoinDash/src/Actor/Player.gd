@@ -25,7 +25,7 @@ func _on_area_enter(area):
 		emit_signal("powerup")	
 	if area.is_in_group("obstacles"):
 		emit_signal("hurt")
-		die()
+		end()
 	pass	
 
 func get_input():
@@ -58,7 +58,7 @@ func start(pos):
 	position = pos
 	$AnimatedSprite.animation = "idle"
 
-func die():
+func end():
 	$AnimatedSprite.animation = "hurt"
 	set_process(false)
 		
