@@ -1,0 +1,55 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://src/Actor/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/Actor/Coin.tscn" type="PackedScene" id=2]
+[ext_resource path="res://src/Level/Game.gd" type="Script" id=3]
+[ext_resource path="res://assets/grass.png" type="Texture" id=4]
+[ext_resource path="res://src/UI/GameHUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Actor/Cactus.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/audio/Hit.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/audio/Coin.wav" type="AudioStream" id=8]
+[ext_resource path="res://assets/audio/Level.wav" type="AudioStream" id=9]
+[ext_resource path="res://assets/audio/Powerup.wav" type="AudioStream" id=10]
+[ext_resource path="res://src/Actor/PowerUp.tscn" type="PackedScene" id=11]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+Coin = ExtResource( 2 )
+PowerUp = ExtResource( 11 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 480.0
+margin_bottom = 720.0
+texture = ExtResource( 4 )
+stretch_mode = 2
+
+[node name="CoinContainer" type="Node" parent="."]
+
+[node name="Cactus" parent="." instance=ExtResource( 6 )]
+position = Vector2( 335, 201 )
+
+[node name="PlayerStart" type="Position2D" parent="."]
+position = Vector2( 16, 16 )
+
+[node name="GameTimer" type="Timer" parent="."]
+
+[node name="PowerUpTimer" type="Timer" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 16, 16 )
+
+[node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="LevelSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="EndSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="PowerUpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
